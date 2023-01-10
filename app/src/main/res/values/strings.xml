@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">RedditApp</string>
+    <string name="reply">Reply</string>
+    <string name="loading_comments">Loading comments</string>
+    <string name="post_url">post_url</string>
+    <string name="post_thumbnail">post_thumbnail</string>
+    <string name="post_title">post_title</string>
+    <string name="post_author">post_author</string>
+    <string name="post_updated">post_updated</string>
+    <string name="post_id">post_id</string>
+    <string name="loading_post">Loading post</string>
+    <string name="post_comment">Post Comment</string>
+    <string name="your_comment">Your comment...</string>
+    <string name="log_in">Log in</string>
+    <string name="type_a_subreddit">Type a subreddit</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="session_username">com.example.redditapp.Account.SessionUsername</string>
+    <string name="session_modhash">com.example.redditapp.Account.SessionModhash</string>
+    <string name="session_cookie">com.example.redditapp.Account.SessionCookie</string>
+    <string name="refresh_feed">Refresh feed</string>
+</resources>
