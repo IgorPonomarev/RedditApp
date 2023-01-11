@@ -52,7 +52,7 @@ class PostAdapter(
         val item = dataset[position]
         holder.postTextView.text = item.title
         holder.postAuthorTextView.text = item.author
-        holder.postUpdatedTextView.text = item.date_updated
+        holder.postUpdatedTextView.text = item.date_updatedFormatted
         postImageUrl = item.thumbnailURL ?: "";
 
         setUpImageLoader()

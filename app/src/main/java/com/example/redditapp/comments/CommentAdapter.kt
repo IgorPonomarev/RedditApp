@@ -5,11 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.View.OnClickListener
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.redditapp.FeedAPI
 import com.example.redditapp.R
 
 class CommentAdapter(
@@ -47,7 +45,7 @@ class CommentAdapter(
         val item = dataset[position]
         holder.commentTextView.text = item.comment
         holder.commentAuthorTextView.text = item.author
-        holder.commentUpdatedTextView.text = item.updated
+        holder.commentUpdatedTextView.text = item.updatedFormatted
         holder.commentProgressBar.visibility = View.GONE
     }
 

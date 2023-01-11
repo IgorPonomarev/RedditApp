@@ -19,4 +19,5 @@
     <string name="session_modhash">com.example.redditapp.Account.SessionModhash</string>
     <string name="session_cookie">com.example.redditapp.Account.SessionCookie</string>
     <string name="refresh_feed">Refresh feed</string>
+    <string name="cd_post_thumbnail">Post Thumbnail</string>
 </resources>

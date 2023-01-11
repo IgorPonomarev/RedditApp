@@ -28,8 +28,8 @@ import com.example.redditapp.Account.LoginActivity;
 import com.example.redditapp.ExtractXML;
 import com.example.redditapp.FeedAPI;
 import com.example.redditapp.R;
-import com.example.redditapp.data.URLS;
 import com.example.redditapp.WebViewActivity;
+import com.example.redditapp.data.URLS;
 import com.example.redditapp.model.Feed;
 import com.example.redditapp.model.entry.Entry;
 import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
@@ -160,42 +160,44 @@ public class CommentsActivity extends AppCompatActivity implements CommentAdapte
                 mComments = new ArrayList<Comment>();
                 List<Entry> entrys = response.body().getEntrys();
 
-                for (int i = 1; i < entrys.size(); i++) {
+                if (entrys.size() > 1) {
+                    for (int i = 1; i < entrys.size(); i++) {
 //                    Log.d(TAG, "onResponse: entry: " + entrys.get(i).toString() +
 //                            "\n--------------------------------------------------\n");
-                    ExtractXML extract = new ExtractXML(entrys.get(i).getContent(),
-                            "<div class=\"md\"><p>",
-                            "</p");
+                        ExtractXML extract = new ExtractXML(entrys.get(i).getContent(),
+                                "<div class=\"md\"><p>",
+                                "</p");
 
-                    List<String> commentDetails = extract.start();
+                        List<String> commentDetails = extract.start();
 
-                    try {
-                        mComments.add(new Comment(
-                                commentDetails.get(0),
-                                entrys.get(i).getAuthor().getName(),
-                                entrys.get(i).getUpdated(),
-                                entrys.get(i).getId()));
+                        try {
+                            mComments.add(new Comment(
+                                    commentDetails.get(0),
+                                    entrys.get(i).getAuthor().getName(),
+                                    entrys.get(i).getUpdated(),
+                                    entrys.get(i).getId()));
 
-                    } catch (IndexOutOfBoundsException e) {
-                        mComments.add(new Comment(
-                                "Error reading comment",
-                                "None",
-                                "None",
-                                "None"));
-                        Log.e(TAG, "onResponse: IndexOutOfBoundsException", e);
-                    } catch (NullPointerException e) {
-                        mComments.add(new Comment(
-                                commentDetails.get(0),
-                                "None",
-                                entrys.get(i).getUpdated(),
-                                entrys.get(i).getId()));
-                        Log.e(TAG, "onResponse: NullPointerException", e);
+                        } catch (IndexOutOfBoundsException e) {
+                            mComments.add(new Comment(
+                                    "Error reading comment",
+                                    "None",
+                                    "None",
+                                    "None"));
+                            Log.e(TAG, "onResponse: IndexOutOfBoundsException", e);
+                        } catch (NullPointerException e) {
+                            mComments.add(new Comment(
+                                    commentDetails.get(0),
+                                    "None",
+                                    entrys.get(i).getUpdated(),
+                                    entrys.get(i).getId()));
+                            Log.e(TAG, "onResponse: NullPointerException", e);
+                        }
                     }
-                }
 
-                recyclerView = findViewById(R.id.commentsRecyclerView);
-                CommentAdapter adapter = new CommentAdapter(CommentsActivity.this, mComments, CommentsActivity.this);
-                recyclerView.setAdapter(adapter);
+                    recyclerView = findViewById(R.id.commentsRecyclerView);
+                    CommentAdapter adapter = new CommentAdapter(CommentsActivity.this, mComments, CommentsActivity.this);
+                    recyclerView.setAdapter(adapter);
+                }
 
                 progressBarComments.setVisibility(View.GONE);
                 commentsLoadingText.setVisibility(View.GONE);

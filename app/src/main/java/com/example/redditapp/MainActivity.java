@@ -1,15 +1,7 @@
 package com.example.redditapp;
 
-import static androidx.recyclerview.widget.DividerItemDecoration.HORIZONTAL;
 import static androidx.recyclerview.widget.DividerItemDecoration.VERTICAL;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
@@ -18,16 +10,18 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.redditapp.Account.LoginActivity;
 import com.example.redditapp.Post.Post;
 import com.example.redditapp.Post.PostAdapter;
-import com.example.redditapp.comments.CommentAdapter;
 import com.example.redditapp.comments.CommentsActivity;
 import com.example.redditapp.data.URLS;
 import com.example.redditapp.model.Feed;
@@ -186,33 +180,6 @@ public class MainActivity extends AppCompatActivity implements PostAdapter.OnPos
                     }
                 }
 
-//                for (int j = 0; j < posts.size(); j++) {
-//                    Log.d(TAG, "onResponse: imageURL: " + posts.get(j).getThumbnailURL());
-//                }
-
-//                ListView listView = (ListView) findViewById(R.id.listView);
-//                CustomListAdapter customListAdapter = new CustomListAdapter(
-//                        MainActivity.this,
-//                        R.layout.card_layout_main,
-//                        posts);
-//                listView.setAdapter(customListAdapter);
-//
-//                // Navigate inside post
-//                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//                    @Override
-//                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                        Log.d(TAG, "onItemClick: Clicked: " + posts.get(i).toString());
-//                        Intent intent = new Intent(MainActivity.this, CommentsActivity.class);
-//                        intent.putExtra("@string/post_url", posts.get(i).getPostURL());
-//                        intent.putExtra("@string/post_thumbnail", posts.get(i).getThumbnailURL());
-//                        intent.putExtra("@string/post_title", posts.get(i).getTitle());
-//                        intent.putExtra("@string/post_author", posts.get(i).getAuthor());
-//                        intent.putExtra("@string/post_updated", posts.get(i).getDate_updated());
-//                        intent.putExtra("@string/post_id", posts.get(i).getId());
-//                        startActivity(intent);
-//                    }
-//                });
-
                 //inflate recycler view
                 recyclerView = findViewById(R.id.postsRecyclerView);
                 PostAdapter adapter = new PostAdapter(MainActivity.this, posts, MainActivity.this);
@@ -242,7 +209,7 @@ public class MainActivity extends AppCompatActivity implements PostAdapter.OnPos
         intent.putExtra("@string/post_thumbnail", posts.get(position).getThumbnailURL());
         intent.putExtra("@string/post_title", posts.get(position).getTitle());
         intent.putExtra("@string/post_author", posts.get(position).getAuthor());
-        intent.putExtra("@string/post_updated", posts.get(position).getDate_updated());
+        intent.putExtra("@string/post_updated", posts.get(position).getDate_updatedFormatted());
         intent.putExtra("@string/post_id", posts.get(position).getId());
         startActivity(intent);
     }

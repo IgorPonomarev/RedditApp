@@ -1,5 +1,10 @@
 package com.example.redditapp.Post;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class Post {
 
     private String title;
@@ -44,6 +49,23 @@ public class Post {
 
     public String getDate_updated() {
         return date_updated;
+    }
+
+    public String getDate_updatedFormatted() {
+        String result = date_updated;
+        //On API >26 show pretty Date and Time
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            //convert string to ZonedDateTime
+            ZoneId zoneId = ZoneId.systemDefault();
+            ZonedDateTime date = ZonedDateTime.parse(result).withZoneSameInstant(zoneId);
+            //convert to Local Date Time
+            LocalDateTime localDateTime = date.toLocalDateTime();
+            //create a formatter for pretty Date Time
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy - HH:mm");
+            //format
+            result = localDateTime.format(formatter);
+        }
+        return result;
     }
 
     public void setDate_updated(String date_updated) {
