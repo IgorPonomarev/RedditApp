@@ -10,6 +10,10 @@ This app is a realisation of [CodingWithMitch course](https://github.com/mitchta
 
 1. The app shows **"funny"** subreddit instead of empty screen and error on app launch
 
+1. Fixed the issue with first comment always error
+
+1. Formatted date and time of posts and comments to look pretty and be shown in local time
+
 1. Added a **login icon** instead of text button in options menu
 
 1. Other minor design improvments
