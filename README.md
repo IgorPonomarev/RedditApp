@@ -1,5 +1,22 @@
 # RedditApp
 
+This app is a simple RSS-feed app which works with Reddit API. It can show posts by choosing a subreddit. The app consists of several activities: feed, comments, account and post in WebView. It allows you to view feed, log in to reddit account and share a comment. **This is a learning project.**
+
+Topics covered:
+
+1. Java + Kotlin
+2. Android SDK and Android Studio
+3. XML-based interfaces
+4. Retrofit + parsing JSON and XML
+5. UniversalImageLoader
+6. RecyclerView
+8. Toolbars, Navigation Bars, Menus
+9. Activity-intent
+10. CardView
+11. WebView
+12. Android Material Design
+
+
 This app is a realisation of [CodingWithMitch course](https://github.com/mitchtabian/Reddit-RSS-App) with some adjustments:
 
 1. `ListView` and `CustomListAdapter` in MainActivity updated to `RecyclerView` and `PostAdapter`
