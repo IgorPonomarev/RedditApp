@@ -17,7 +17,7 @@ Topics covered:
 12. Android Material Design
 
 
-This app is a realisation of [CodingWithMitch course](https://github.com/mitchtabian/Reddit-RSS-App) with some adjustments:
+This app is an implementation of [CodingWithMitch course](https://github.com/mitchtabian/Reddit-RSS-App) with some adjustments:
 
 1. `ListView` and `CustomListAdapter` in MainActivity updated to `RecyclerView` and `PostAdapter`
 
